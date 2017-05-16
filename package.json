@@ -1,11 +1,64 @@
 {
   "name": "semantic-git-release-cli",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+   "description": "A CLI for semantic git releases",
+  "main": "dest",
+  "bin": {
+    "semantic-git-release": "./dest/cli.js",
+    "sgr": "dest/cli.js"
   },
-  "author": "",
-  "license": "MIT"
+  "scripts": {
+    "pretest": "npm run lint & npm run babel",
+    "test": "nyc ava -s",
+    "lint": "eslint lib test",
+    "babel": "babel lib -d dest",
+    "prepublish": "npm run babel",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "ava": {
+    "require": [
+      "babel-register",
+      "babel-polyfill"
+    ],
+    "babel": "inherit"
+  },
+  "nyc": {
+    "exclude": [
+      "test",
+      "dest"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rudolfsonjunior/node-semantic-git-release-cli.git"
+  },
+  "author": "Lukas Aichbauer <l.aichbauer@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rudolfsonjunior/node-semantic-git-release-cli/issues"
+  },
+  "keywords": [
+    "semantic",
+    "git",
+    "release",
+    "cli",
+    "fast",
+    "enhance",
+    "workflow"
+  ],
+  "homepage": "https://github.com/rudolfsonjunior/node-semantic-git-release-cli#readme",
+  "devDependencies": {
+    "ava": "^0.18.2",
+    "babel-cli": "^6.24.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.2.1",
+    "coveralls": "^2.12.0",
+    "eslint": "^3.17.1",
+    "eslint-config-airbnb-base": "^11.1.1",
+    "eslint-plugin-import": "^2.2.0",
+    "husky": "^0.13.2",
+    "nyc": "^10.1.2"
+  },
+  "dependencies": {
+  }
 }

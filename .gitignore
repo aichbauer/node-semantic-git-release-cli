@@ -1,0 +1,14 @@
+# modules
+node_modules
+npm-debug.log
+
+# generated
+dest
+.nyc*
+coverage
+
+# macOS
+.DS_STORE
+
+# IDE / Editors
+.vscode

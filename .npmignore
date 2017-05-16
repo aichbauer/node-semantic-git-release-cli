@@ -1,0 +1,9 @@
+lib
+.nyc_output
+coverage
+test
+.babelrc
+.eslintrc
+.travis.yml
+appveyor.yml
+yarn.lock
