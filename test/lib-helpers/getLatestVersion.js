@@ -62,3 +62,14 @@ test.serial('LATEST VERSION | no tagged version', async (t) => {
 
   await process.chdir('../../..');
 });
+
+
+test.serial('LATEST VERSION | no package.json', async (t) => {
+  await process.chdir('test/fixtures/repo-no-commits');
+
+  const latestVersion = await getLatestVersion();
+
+  t.deepEqual(latestVersion, 'no package.json');
+
+  await process.chdir('../../..');
+});

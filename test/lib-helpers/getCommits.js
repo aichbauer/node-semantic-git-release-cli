@@ -1,10 +1,11 @@
 import test from 'ava';
+import { homedir } from 'os';
 
 import getCommits from '../../lib/helpers/getCommits';
 
 process.env.NODE_ENV = 'test';
 
-test('get all commits since last tag', async (t) => {
+test('GET COMMITS | since last tag', async (t) => {
   await process.chdir('test/fixtures/repo-with-tags');
 
   const commits = await getCommits();
@@ -18,7 +19,7 @@ test('get all commits since last tag', async (t) => {
   await process.chdir('../../..');
 });
 
-test.serial('get all commits, from a repo without tags', async (t) => {
+test.serial('GET COMMITS | from a repo without tags', async (t) => {
   await process.chdir('test/fixtures/repo-without-tags');
 
   const commits = await getCommits();
@@ -26,6 +27,28 @@ test.serial('get all commits, from a repo without tags', async (t) => {
   t.deepEqual(commits, [
     'f0bd5c7291ca6228953aed3cc077afd95a7ab82e',
   ]);
+
+  await process.chdir('../../..');
+});
+
+test.serial('GET COMMITS | not a repo', async (t) => {
+  const cwd = process.cwd();
+
+  await process.chdir(homedir());
+
+  const commits = await getCommits();
+
+  t.deepEqual(commits, ['not a repo']);
+
+  await process.chdir(cwd);
+});
+
+test.serial('GET COMMITS | no commits yet', async (t) => {
+  await process.chdir('test/fixtures/repo-no-commits');
+
+  const commits = await getCommits();
+
+  t.deepEqual(commits, ['no commits yet']);
 
   await process.chdir('../../..');
 });
