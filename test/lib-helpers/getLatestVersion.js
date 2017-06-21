@@ -37,7 +37,7 @@ test.serial('LATEST VERSION | tagged version !== package.json version', async (t
 
   const latestVersion = await getLatestVersion();
 
-  t.is(latestVersion, 'versions differ');
+  t.is(latestVersion, '');
 
   await fs.unlinkSync(path.join(cwd, 'package.json'));
 
@@ -69,7 +69,7 @@ test.serial('LATEST VERSION | no package.json', async (t) => {
 
   const latestVersion = await getLatestVersion();
 
-  t.deepEqual(latestVersion, 'no package.json');
+  t.deepEqual(latestVersion, '');
 
   await process.chdir('../../..');
 });

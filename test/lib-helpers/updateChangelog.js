@@ -21,7 +21,7 @@ test.after('reset current working directory', async () => {
   await process.chdir('../../..');
 });
 
-test.serial('create a new changelog, write 3 commits', async (t) => {
+test.serial('UPDATE CHANGELOG | create a new changelog, write 3 commits', async (t) => {
   let data;
 
   await updateChangelog(commits, '0.0.1');
@@ -36,7 +36,7 @@ test.serial('create a new changelog, write 3 commits', async (t) => {
   await readstream.close();
 });
 
-test.serial('update the existing changelog, write 3 commits', async (t) => {
+test.serial('UPDATE CHANGELOG | update the existing changelog, write 3 commits', async (t) => {
   let data;
 
   await updateChangelog(commits, '0.0.2');

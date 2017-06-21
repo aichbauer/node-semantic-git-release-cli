@@ -1,7 +1,0 @@
-0000000000000000000000000000000000000000 29030f02166822e8af377525e18567ea19a8a521 aichbauer <rudolfson.junior@gmail.com> 1496245393 +0200	commit (initial): Initial commit
-29030f02166822e8af377525e18567ea19a8a521 d1bac3010f03fde50454b2a70a5540a3b5eba23b aichbauer <rudolfson.junior@gmail.com> 1496245429 +0200	commit: Feat: awesome feature
-d1bac3010f03fde50454b2a70a5540a3b5eba23b 67a695cdc8d3b4ee53fc2d9cd61846ad3fb1b8ed aichbauer <rudolfson.junior@gmail.com> 1496246009 +0200	commit: Feat: new feature third
-67a695cdc8d3b4ee53fc2d9cd61846ad3fb1b8ed 7bebbf99337766e7cf9c6176c2451139c43430b8 aichbauer <rudolfson.junior@gmail.com> 1496246033 +0200	commit: Test: add test for second and third
-7bebbf99337766e7cf9c6176c2451139c43430b8 9f23f40c7c5eef9b85a7bcf41d6dc7eff149a8e0 aichbauer <rudolfson.junior@gmail.com> 1496246160 +0200	commit: Feat: new feature fourth
-9f23f40c7c5eef9b85a7bcf41d6dc7eff149a8e0 2d5ae824612279e6c7e0ad9ee7acc4fbdc073442 aichbauer <rudolfson.junior@gmail.com> 1496246174 +0200	commit: Test: update test
-2d5ae824612279e6c7e0ad9ee7acc4fbdc073442 2490544c9e6fb155440b73bab9bf6aed48ccd762 aichbauer <rudolfson.junior@gmail.com> 1496246227 +0200	commit: Docs: add readme

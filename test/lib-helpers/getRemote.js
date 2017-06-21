@@ -26,7 +26,7 @@ test.serial('GET REMOTE | error', async (t) => {
 
   const remote = await getRemote();
 
-  t.is(remote, 'not a repo');
+  t.is(remote, '');
 
   await process.chdir(cwd);
 });

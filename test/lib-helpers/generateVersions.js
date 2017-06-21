@@ -4,7 +4,7 @@ import generateVersions from '../../lib/helpers/generateVersions';
 
 process.env.NODE_ENV = 'test';
 
-test('generate next semver compatible versions', async (t) => {
+test('GENERATE VERSIONS | all possible semver versions', async (t) => {
   const versions = await generateVersions('0.0.1');
 
   t.deepEqual(versions, [

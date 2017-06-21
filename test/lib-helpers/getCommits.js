@@ -38,7 +38,7 @@ test.serial('GET COMMITS | not a repo', async (t) => {
 
   const commits = await getCommits();
 
-  t.deepEqual(commits, ['not a repo']);
+  t.deepEqual(commits, []);
 
   await process.chdir(cwd);
 });
@@ -48,7 +48,7 @@ test.serial('GET COMMITS | no commits yet', async (t) => {
 
   const commits = await getCommits();
 
-  t.deepEqual(commits, ['no commits yet']);
+  t.deepEqual(commits, []);
 
   await process.chdir('../../..');
 });
