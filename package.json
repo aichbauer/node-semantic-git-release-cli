@@ -30,7 +30,8 @@
       "test",
       "dest",
       "lib/sub-tasks",
-      "lib/tasks.js"
+      "lib/tasks.js",
+      "lib/helpers/cleanNodeModules.js"
     ]
   },
   "repository": {
