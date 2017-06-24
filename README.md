@@ -10,7 +10,7 @@
 
 ## Why?
 
-Many projects need versioning. It is always the same: testing, writing the changelog, updating the version, tagging the commit, and finally relaesing the new version.
+Many projects need versioning. It is always the same: testing, writing the changelog, updating the version, tagging the commit, and finally releasing the new version.
 
 `sgr` will take care of all of them, so you can focus on the more important stuff: **code**
 
@@ -42,13 +42,10 @@ $ semantic-git-release
 
 ## Tasks
 
-So There are few tasks `semantic-git-release-cli` will make for you.
+So there are a few tasks `semantic-git-release-cli` will do for you:
 
-- it removes the node_modules folder and reinstalls all of you dependencies
-- it runs your tests for your project, using `npm test`
-- it updates your version in your package.json
-- it creates or updates your CHANGELOG.md
-- it adds the CHANGELOG.md and package.json to git
-- it commits the changes with the new version
-- it tags the commit with the new version
-- it pushes the changes to your remote repo with the new tag
+- removes and reinstalls `node_modules` (prefers `yarn` by default)
+- runs tests by calling `npm test`
+- updates the `version` in `package.json`
+- creates or updates the `CHANGELOG.md`
+- commits and tags the new `version`
