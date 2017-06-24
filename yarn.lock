@@ -1627,6 +1627,18 @@ execa@^0.6.1, execa@^0.6.3:
     signal-exit "^3.0.0"
     strip-eof "^1.0.0"
 
+execa@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/execa/-/execa-0.7.0.tgz#944becd34cc41ee32a63a9faf27ad5a65fc59777"
+  dependencies:
+    cross-spawn "^5.0.1"
+    get-stream "^3.0.0"
+    is-stream "^1.1.0"
+    npm-run-path "^2.0.0"
+    p-finally "^1.0.0"
+    signal-exit "^3.0.0"
+    strip-eof "^1.0.0"
+
 exit-hook@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/exit-hook/-/exit-hook-1.1.1.tgz#f05ca233b48c05d54fff07765df8507e95c02ff8"
@@ -1845,6 +1857,15 @@ get-caller-file@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-1.0.2.tgz#f702e63127e7e231c160a80c1554acb70d5047e5"
 
+get-git-remotes@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/get-git-remotes/-/get-git-remotes-1.0.1.tgz#507bafd91cd440d8ec57faf856f8d8bda9ee596d"
+  dependencies:
+    execa "^0.7.0"
+    is-git-repository "^1.1.1"
+    os "^0.1.1"
+    path-is-absolute "^1.0.1"
+
 get-port@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/get-port/-/get-port-2.1.0.tgz#8783f9dcebd1eea495a334e1a6a251e78887ab1a"
@@ -1878,6 +1899,15 @@ git-commit-info@^1.0.0:
   dependencies:
     execa "^0.6.1"
     is-git-repository "^1.1.1"
+    path-is-absolute "^1.0.1"
+
+git-commit-range@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/git-commit-range/-/git-commit-range-1.0.1.tgz#10c4f2446252584a02e40be8c1974166a372f830"
+  dependencies:
+    execa "^0.7.0"
+    is-git-repository "^1.1.1"
+    os "^0.1.1"
     path-is-absolute "^1.0.1"
 
 glob-base@^0.3.0:
@@ -3090,6 +3120,10 @@ os-locale@^2.0.0:
 os-tmpdir@^1.0.0, os-tmpdir@^1.0.1, os-tmpdir@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
+
+os@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/os/-/os-0.1.1.tgz#208845e89e193ad4d971474b93947736a56d13f3"
 
 osenv@^0.1.0, osenv@^0.1.4:
   version "0.1.4"
