@@ -1,19 +1,22 @@
 {
   "name": "semantic-git-release-cli",
   "version": "0.0.0",
-   "description": "A CLI for semantic git releases",
+  "description": "A CLI for semantic git releases",
   "main": "dest",
   "bin": {
     "semantic-git-release": "./dest/cli.js",
-    "sgr": "dest/cli.js"
+    "sgr": "./dest/cli.js"
   },
   "scripts": {
-    "pretest": "npm run lint & npm run babel",
-    "test": "nyc ava -s",
+    "pretest": "npm run lint & npm run babel & node ./test/test-helpers/_setup.js",
+    "test": "nyc ava -s || npm run posttest",
+    "posttest": "node ./test/test-helpers/_cleanup.js",
     "lint": "eslint lib test",
     "babel": "babel lib -d dest",
     "prepublish": "npm run babel",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+    "prepush": "npm test",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "resetFixtures": "mv test/fixtures/repo-with-tags/.git test/fixtures/repo-with-tags/git && mv test/fixtures/repo-without-tags/.git test/fixtures/repo-without-tags/git && mv test/fixtures/repo-no-commits/.git test/fixtures/repo-no-commits/git"
   },
   "ava": {
     "require": [
@@ -25,17 +28,20 @@
   "nyc": {
     "exclude": [
       "test",
-      "dest"
+      "dest",
+      "lib/sub-tasks",
+      "lib/tasks.js",
+      "lib/helpers/cleanNodeModules.js"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rudolfsonjunior/node-semantic-git-release-cli.git"
+    "url": "git+https://github.com/aichbauer/node-semantic-git-release-cli.git"
   },
   "author": "Lukas Aichbauer <l.aichbauer@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rudolfsonjunior/node-semantic-git-release-cli/issues"
+    "url": "https://github.com/aichbauer/node-semantic-git-release-cli/issues"
   },
   "keywords": [
     "semantic",
@@ -46,7 +52,7 @@
     "enhance",
     "workflow"
   ],
-  "homepage": "https://github.com/rudolfsonjunior/node-semantic-git-release-cli#readme",
+  "homepage": "https://github.com/aichbauer/node-semantic-git-release-cli#readme",
   "devDependencies": {
     "ava": "^0.18.2",
     "babel-cli": "^6.24.0",
@@ -60,5 +66,20 @@
     "nyc": "^10.1.2"
   },
   "dependencies": {
+    "execa": "^0.6.3",
+    "fs-extra": "^3.0.1",
+    "get-git-remotes": "^1.0.1",
+    "git-commit-info": "^1.0.0",
+    "git-commit-range": "^1.0.1",
+    "has-yarn": "^1.0.0",
+    "inquirer": "^3.0.6",
+    "is-git-added": "^1.0.2",
+    "is-git-repository": "^1.1.1",
+    "listr": "^0.12.0",
+    "moment": "^2.18.1",
+    "semver": "^5.3.0",
+    "tagged-git-commit": "^1.0.0",
+    "update-notifier": "^2.1.0",
+    "yargs": "^8.0.1"
   }
 }
