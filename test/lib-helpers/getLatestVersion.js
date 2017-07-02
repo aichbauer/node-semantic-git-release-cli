@@ -69,8 +69,6 @@ test.serial('LATEST VERSION | no package.json', async (t) => {
 
   const latestVersion = await getLatestVersion();
 
-  console.log(latestVersion);
-
   t.deepEqual(latestVersion, '');
 
   await process.chdir('../../..');
