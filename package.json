@@ -65,6 +65,7 @@
     "nyc": "^10.1.2"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "chalk": "^2.0.1",
     "count-git-tags": "^1.0.0",
     "execa": "^0.6.3",
