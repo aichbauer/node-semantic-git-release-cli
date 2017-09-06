@@ -50,3 +50,20 @@ test.serial('UPDATE CHANGELOG | update the existing changelog, write 3 commits',
 
   await readstream.close();
 });
+
+test.serial('UPDATE CHANGELOG | no changelog exists before', async (t) => {
+  let data;
+
+  fs.unlinkSync(path.join(process.cwd(), 'CHANGELOG.md'));
+
+  await updateChangelog(commits, '0.0.1');
+
+  const readstream = fs.createReadStream(path.join(process.cwd(), 'CHANGELOG.md'), 'utf-8');
+  readstream.on('data', (chunk) => {
+    data += chunk;
+  });
+
+  await readstream.on('end', () => (t.is(data, changelog.overwritten)));
+
+  await readstream.close();
+});

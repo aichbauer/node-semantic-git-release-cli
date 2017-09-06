@@ -17,7 +17,7 @@ test.before('change current working directory to fixture', async () => {
   await process.chdir('test/fixtures/repo-with-tags');
 });
 
-test.after('reset current working directory', async () => {
+test.after.always('reset current working directory', async () => {
   await process.chdir('../../..');
 });
 
@@ -41,4 +41,29 @@ test.serial('COMPLETE CHANGELOG | generate with backup', async (t) => {
   const backupFiles = fs.readdirSync(path.join(cwd, '.sgr_backup'));
 
   t.is(Object.keys(backupFiles).length, 1);
+});
+
+test.serial('COMPLETE CHANGELOG | generate without backup, and existing .sgr_backup dir', async (t) => {
+  const cwd = process.cwd();
+  const backupFilesBefore = fs.readdirSync(path.join(cwd, '.sgr_backup'));
+
+  t.is(Object.keys(backupFilesBefore).length, 1);
+
+  await generateCompleteChangelog(false);
+
+  const backupFilesAfter = fs.readdirSync(path.join(cwd, '.sgr_backup'));
+
+  t.is(Object.keys(backupFilesAfter).length, 1);
+});
+
+test.serial('COMPLETE CHANGELOG | generate with backup, and existing .sgr_backup dir', async (t) => {
+  const cwd = process.cwd();
+
+  await updateChangelog(commits, '0.0.1');
+
+  await generateCompleteChangelog(true);
+
+  const backupFiles = fs.readdirSync(path.join(cwd, '.sgr_backup'));
+
+  t.is(Object.keys(backupFiles).length, 2);
 });
