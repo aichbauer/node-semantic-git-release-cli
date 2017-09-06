@@ -40,7 +40,7 @@ test.serial('COMPLETE CHANGELOG | generate with backup', async (t) => {
 
   const backupFiles = fs.readdirSync(path.join(cwd, '.sgr_backup'));
 
-  t.is(Object.keys(backupFiles).length, 1);
+  t.is(backupFiles.length, 1);
 });
 
 test.serial('COMPLETE CHANGELOG | generate without backup, and existing .sgr_backup dir', async (t) => {
@@ -65,5 +65,5 @@ test.serial('COMPLETE CHANGELOG | generate with backup, and existing .sgr_backup
 
   const backupFiles = fs.readdirSync(path.join(cwd, '.sgr_backup'));
 
-  t.is(Object.keys(backupFiles).length, 2);
+  t.is(backupFiles.length, 2);
 });
