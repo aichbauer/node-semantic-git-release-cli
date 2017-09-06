@@ -1,4 +1,5 @@
 import fs from 'fs';
+import fse from 'fs-extra';
 import test from 'ava';
 import path from 'path';
 
@@ -40,24 +41,41 @@ test.serial('COMPLETE CHANGELOG | generate with backup', async (t) => {
 
   const backupFiles = fs.readdirSync(path.join(cwd, '.sgr_backup'));
 
+  backupFiles.forEach((file) => {
+    fs.unlinkSync(path.join(cwd, '.sgr_backup', file));
+  });
+
+  fse.removeSync(path.join(cwd, '.sgr_backup'));
+
   t.is(backupFiles.length, 1);
 });
 
 test.serial('COMPLETE CHANGELOG | generate without backup, and existing .sgr_backup dir', async (t) => {
   const cwd = process.cwd();
+
+  fs.mkdirSync(path.join(cwd, '.sgr_backup'));
+
   const backupFilesBefore = fs.readdirSync(path.join(cwd, '.sgr_backup'));
 
-  t.is(Object.keys(backupFilesBefore).length, 1);
+  t.is(backupFilesBefore.length, 0);
 
   await generateCompleteChangelog(false);
 
   const backupFilesAfter = fs.readdirSync(path.join(cwd, '.sgr_backup'));
 
-  t.is(Object.keys(backupFilesAfter).length, 1);
+  backupFilesAfter.forEach((file) => {
+    fs.unlinkSync(path.join(cwd, '.sgr_backup', file));
+  });
+
+  fse.removeSync(path.join(cwd, '.sgr_backup'));
+
+  t.is(backupFilesAfter.length, 0);
 });
 
 test.serial('COMPLETE CHANGELOG | generate with backup, and existing .sgr_backup dir', async (t) => {
   const cwd = process.cwd();
+
+  fs.mkdirSync(path.join(cwd, '.sgr_backup'));
 
   await updateChangelog(commits, '0.0.1');
 
@@ -65,5 +83,12 @@ test.serial('COMPLETE CHANGELOG | generate with backup, and existing .sgr_backup
 
   const backupFiles = fs.readdirSync(path.join(cwd, '.sgr_backup'));
 
-  t.is(backupFiles.length, 2);
+  backupFiles.forEach((file) => {
+    fs.unlinkSync(path.join(cwd, '.sgr_backup', file));
+  });
+
+  fse.removeSync(path.join(cwd, '.sgr_backup'));
+
+  t.is(backupFiles.length, 1);
 });
+
