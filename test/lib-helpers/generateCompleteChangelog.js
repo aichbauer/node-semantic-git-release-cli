@@ -1,5 +1,4 @@
-import fs from 'fs';
-import fse from 'fs-extra';
+import fs from 'fs-extra';
 import test from 'ava';
 import path from 'path';
 
@@ -45,7 +44,7 @@ test.serial('COMPLETE CHANGELOG | generate with backup', async (t) => {
     fs.unlinkSync(path.join(cwd, '.sgr_backup', file));
   });
 
-  fse.removeSync(path.join(cwd, '.sgr_backup'));
+  fs.removeSync(path.join(cwd, '.sgr_backup'));
 
   t.is(backupFiles.length, 1);
 });
@@ -67,7 +66,7 @@ test.serial('COMPLETE CHANGELOG | generate without backup, and existing .sgr_bac
     fs.unlinkSync(path.join(cwd, '.sgr_backup', file));
   });
 
-  fse.removeSync(path.join(cwd, '.sgr_backup'));
+  fs.removeSync(path.join(cwd, '.sgr_backup'));
 
   t.is(backupFilesAfter.length, 0);
 });
@@ -87,7 +86,7 @@ test.serial('COMPLETE CHANGELOG | generate with backup, and existing .sgr_backup
     fs.unlinkSync(path.join(cwd, '.sgr_backup', file));
   });
 
-  fse.removeSync(path.join(cwd, '.sgr_backup'));
+  fs.removeSync(path.join(cwd, '.sgr_backup'));
 
   t.is(backupFiles.length, 1);
 });
