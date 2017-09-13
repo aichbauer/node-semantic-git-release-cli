@@ -1,3 +1,8 @@
+1.1.0 - September, 13 2017
+
+ * 67e04d0 Feat: recover the complete changelog.md (#10) (Lukas Aichbauer)
+ * 82d1fcc Docs: looping gif (#11) (Lukas Aichbauer)
+
 1.0.1 - July, 16 2017
 
 * c13ddb3 Fix: change commit to version (#6) (Lukas Aichbauer)
