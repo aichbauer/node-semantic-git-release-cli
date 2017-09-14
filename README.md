@@ -59,7 +59,7 @@ So there are a few tasks `semantic-git-release-cli` will do for you:
 - creates or updates the `CHANGELOG.md`
 - commits and tags the new `version`
 
-#### Recover the complete changelog
+### Recover the complete changelog
 
 If you are start to use `semantic-git-release-cli` but already released (and tagged) versions. Simply use the recover mode.
 
