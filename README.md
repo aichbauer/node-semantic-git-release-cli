@@ -69,5 +69,5 @@ If `--recover` is set to `backup` it will generate a backup file of your current
 # generates the complete CHANGELOG.md without backup
 $ sgr --recover # or short `sgr -r`
 # generates the complete CHANGELOG.md with backup
-$ sgr -r backup # or short `sgr -r b`
+$ sgr --recover backup # or short `sgr -r b`
 ```
