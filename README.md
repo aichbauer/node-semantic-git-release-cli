@@ -70,7 +70,7 @@ $ sgr
 
 ### sgr recover
 
-With `sgr recover [backup] [b]` you can recover your complete CHANGELOG.md if you just started to use `semantic-git-release-cli` but already released (and tagged) versions.
+With `sgr recover [backup]` you can recover your complete CHANGELOG.md if you just started to use `semantic-git-release-cli` but already released (and tagged) versions.
 
 ```sh
 # generates the complete CHANGELOG.md
