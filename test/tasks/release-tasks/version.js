@@ -1,6 +1,6 @@
 import test from 'ava';
 
-import version from '../../../lib/tasks/default-tasks/version';
+import version from '../../../lib/tasks/release-tasks/version';
 
 test.before('change current working directory to fixture', async () => {
   await process.chdir('test/fixtures/repo-with-tags');
