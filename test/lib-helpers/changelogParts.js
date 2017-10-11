@@ -20,7 +20,7 @@ test.after.always('reset current working directory', async () => {
 });
 
 test('HELPERS | CHANGELOG PARTS | header', (t) => {
-  const value = header('0.0.1', 'Wed Oct 16 00:00:00 2017 CEST');
+  const value = header('0.0.1', 'Mon October 16 17:43:49 2017 +0200');
   const expected = '0.0.1 - October, 16 2017';
 
   t.is(value, expected);

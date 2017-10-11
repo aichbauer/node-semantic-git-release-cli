@@ -15,12 +15,9 @@ test('CMDS | RECOVER | check command name, builder, aliases, and desc', (t) => 
     desc,
   };
   const expected = {
-    command: 'recover [backup] [b]',
+    command: 'recover [backup]',
     builder: {
       backup: {
-        default: false,
-      },
-      b: {
         default: false,
       },
     },
