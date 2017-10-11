@@ -2,7 +2,7 @@ import test from 'ava';
 import fs from 'fs-extra';
 import path from 'path';
 
-import tests from '../../lib/sub-tasks/tests';
+import tests from '../../../lib/tasks/default-tasks/tests';
 
 test.before('change current working directory to fixture', async () => {
   await process.chdir('test/fixtures/repo-with-tags');
@@ -12,7 +12,7 @@ test.after('reset current working directory', async () => {
   await process.chdir('../../..');
 });
 
-test('run tests', async (t) => {
+test('TASKS | DEFAULT TASKS | TEST | run tests', async (t) => {
   const testTasks = tests();
 
   const taskTitles = await testTasks._tasks.map((task) => task.title);

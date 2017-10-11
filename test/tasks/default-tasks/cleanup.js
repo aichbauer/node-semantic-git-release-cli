@@ -2,7 +2,7 @@ import test from 'ava';
 import path from 'path';
 import fs from 'fs-extra';
 
-import cleanup from '../../lib/sub-tasks/cleanup';
+import cleanup from '../../../lib/tasks/default-tasks/cleanup';
 
 test.before('change current working directory to fixture', async () => {
   await process.chdir('test/fixtures/repo-with-tags');
@@ -12,7 +12,7 @@ test.after('reset current working directory', async () => {
   await process.chdir('../../..');
 });
 
-test('check package.json, delete node_modules, install dependencies', async (t) => {
+test('TASKS | DEFAULT TASKS | CLEANUP | check package.json, delete node_modules, install dependencies', async (t) => {
   const cwd = process.cwd();
 
   const cleanupTasks = cleanup();
