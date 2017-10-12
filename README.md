@@ -28,15 +28,6 @@ $ yarn add global semantic-git-release-cli
 
 ## Usage
 
-- [Release a new version](#release-a-new-version)
-- [Recover the complete changelog](#recover-the-complete-changelog)
-
-### Release a new version
-
-If you start using `semantic-git-release-cli` with a brand new project simply start in this section.
-
-If you already released some verions of your project, you might consider to [recover the complete changelog first](#recover-the-complete-changelog).
-
 Forget the times when you had to manually write changelogs, update versions, tag commits. Now just type:
 
 ```sh
@@ -49,6 +40,19 @@ or if you already have an alias for sgr, use following instead:
 $ semantic-git-release
 ```
 
+## Commands
+
+`semantic-git-release-cli` was build to be as simple as possible, so there are just a few commands you need to know.
+
+* [sgr](#sgr)
+* [sgr recover](#sgr-recover)
+* [sgr version](#sgr-version)
+* [sgr --help](#sgr---help)
+
+### sgr
+
+With `sgr` you can release a new version of your project.
+
 #### Tasks
 
 So there are a few tasks `semantic-git-release-cli` will do for you:
@@ -59,15 +63,36 @@ So there are a few tasks `semantic-git-release-cli` will do for you:
 - creates or updates the `CHANGELOG.md`
 - commits and tags the new `version`
 
-### Recover the complete changelog
+```sh
+# release a new version
+$ sgr
+```
 
-If you are start to use `semantic-git-release-cli` but already released (and tagged) versions. Simply use the recover mode.
+### sgr recover
 
-If `--recover` is set to `backup` it will generate a backup file of your current `CHANGELOG.md` inside of the `.sgr_backup` directory, which gets generated the first time you use this command inside of your current working directory.
+With `sgr recover [backup]` you can recover your complete CHANGELOG.md if you just started to use `semantic-git-release-cli` but already released (and tagged) versions.
 
 ```sh
-# generates the complete CHANGELOG.md without backup
-$ sgr --recover # or short `sgr -r`
-# generates the complete CHANGELOG.md with backup
-$ sgr --recover backup # or short `sgr -r b`
+# generates the complete CHANGELOG.md
+$ sgr recover
+# generates the complete CHANGELOG.md and creates a backup of the current CHANGELOG.md in .sgr_backup
+$ sgr recover backup
+```
+
+### sgr version 
+
+With `sgr version` you can display the current version of `semantic-git-release-cli`.
+
+```sh
+# current version
+$ sgr version
+```
+
+### sgr --help
+
+With `sgr --help` you can display usage of `semantic-git-release-cli`.
+
+```sh
+# usage of cli
+$ sgr --help
 ```

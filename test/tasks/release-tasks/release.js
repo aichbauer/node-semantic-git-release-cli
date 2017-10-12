@@ -1,6 +1,6 @@
 import test from 'ava';
 
-import release from '../../lib/sub-tasks/release';
+import release from '../../../lib/tasks/release-tasks/release';
 
 test.before('change current working directory to fixture', async () => {
   await process.chdir('test/fixtures/repo-with-tags');
@@ -10,7 +10,7 @@ test.after('reset current working directory', async () => {
   await process.chdir('../../..');
 });
 
-test('tag repo, add files, commit changelog and package.json, publish tags', async (t) => {
+test('TASKS | DEFAULT TASKS | RELEASE | tag repo, add files, commit changelog and package.json, publish tags', async (t) => {
   const releaseTasks = await release('0.0.1');
 
   const taskTitles = await releaseTasks._tasks.map((task) => task.title);

@@ -22,48 +22,43 @@ test.after('reset current working directory', async () => {
 });
 
 test.serial('UPDATE CHANGELOG | create a new changelog, write 3 commits', async (t) => {
-  let data;
-
-  await updateChangelog(commits, '0.0.1');
-
-  const readstream = fs.createReadStream(path.join(process.cwd(), 'CHANGELOG.md'), 'utf-8');
-  readstream.on('data', (chunk) => {
-    data += chunk;
-  });
-
-  await readstream.on('end', () => (t.is(data, changelog.overwritten)));
-
-  await readstream.close();
-});
-
-test.serial('UPDATE CHANGELOG | update the existing changelog, write 3 commits', async (t) => {
-  let data;
-
-  await updateChangelog(commits, '0.0.2');
-
-  const readstream = fs.createReadStream(path.join(process.cwd(), 'CHANGELOG.md'), 'utf-8');
-  readstream.on('data', (chunk) => {
-    data += chunk;
-  });
-
-  await readstream.on('end', () => (t.is(data, changelog.overwritten)));
-
-  await readstream.close();
-});
-
-test.serial('UPDATE CHANGELOG | no changelog exists before', async (t) => {
-  let data;
-
   fs.unlinkSync(path.join(process.cwd(), 'CHANGELOG.md'));
 
   await updateChangelog(commits, '0.0.1');
 
-  const readstream = fs.createReadStream(path.join(process.cwd(), 'CHANGELOG.md'), 'utf-8');
-  readstream.on('data', (chunk) => {
-    data += chunk;
-  });
+  const value = fs.readFileSync(path.join(process.cwd(), 'CHANGELOG.md'), 'utf-8');
+  const expected = changelog.new;
 
-  await readstream.on('end', () => (t.is(data, changelog.overwritten)));
+  t.deepEqual(value, expected);
+});
 
-  await readstream.close();
+test.serial('UPDATE CHANGELOG | update the existing changelog, write 3 commits', async (t) => {
+  await updateChangelog(commits, '0.0.2');
+
+  const value = fs.readFileSync(path.join(process.cwd(), 'CHANGELOG.md'), 'utf-8');
+  const expected = changelog.overwritten;
+
+  t.deepEqual(value, expected);
+});
+
+test.serial('UPDATE CHANGELOG | no changelog exists before', async (t) => {
+  fs.unlinkSync(path.join(process.cwd(), 'CHANGELOG.md'));
+
+  await updateChangelog(commits, '0.0.1');
+
+  const value = fs.readFileSync(path.join(process.cwd(), 'CHANGELOG.md'), 'utf-8');
+  const expected = changelog.new;
+
+  t.deepEqual(value, expected);
+});
+
+test.serial('UPDATE CHANGELOG | no changelog exists before', async (t) => {
+  fs.unlinkSync(path.join(process.cwd(), 'CHANGELOG.md'));
+
+  await updateChangelog();
+
+  const value = fs.readFileSync(path.join(process.cwd(), 'CHANGELOG.md'), 'utf-8');
+  const expected = changelog.noCommitsAndVersion;
+
+  t.deepEqual(value, expected);
 });
