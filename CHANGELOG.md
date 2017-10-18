@@ -1,7 +1,7 @@
 1.1.0 - September, 13 2017
 
- * 67e04d0 Feat: recover the complete changelog.md (#10) (Lukas Aichbauer)
- * 82d1fcc Docs: looping gif (#11) (Lukas Aichbauer)
+* 67e04d0 Feat: recover the complete changelog.md (#10) (Lukas Aichbauer)
+* 82d1fcc Docs: looping gif (#11) (Lukas Aichbauer)
 
 1.0.1 - July, 16 2017
 
@@ -14,4 +14,4 @@
 * 1a02c2c Fix: changelog commits without body (#3) (Lukas Aichbauer)
 * 656ead8 Feat: write or update changelog, tag new version, release new version (#2) (Lukas Aichbauer)
 * b732894 Chore: add basic setup (rudolfsonjunior)
-* 98f6767 Initial commit (rudolfsonjunior)
+
