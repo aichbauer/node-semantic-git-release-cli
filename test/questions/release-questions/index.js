@@ -1,7 +1,7 @@
 import test from 'ava';
 
 import generateVersions from '../../../lib/helpers/generateVersions';
-import questions from '../../../lib/questions/default-questions';
+import questions from '../../../lib/questions/release-questions';
 
 test('QUESTIONS | DEFAULT QUESTIONS | check the values of questions object', (t) => {
   const versions = generateVersions('0.0.1');
