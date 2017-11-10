@@ -8,6 +8,19 @@
 
 <img src="https://raw.githubusercontent.com/aichbauer/node-semantic-git-release-cli/master/media/screenshot.gif">
 
+## Table of contents
+
+* [Why](#why)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Commands](#commands)
+  * [sgr](#sgr)
+  * [sgr recover](#sgr-recover)
+  * [sgr version](#sgr-version)
+* [Options](#options)
+  * [sgr recover --backup](#sgr-recover---backup)
+  * [sgr --help](#sgr---help)
+
 ## Why?
 
 Many projects need versioning. It is always the same: testing, writing the changelog, updating the version, tagging the commit, and finally releasing the new version.
@@ -47,6 +60,12 @@ $ semantic-git-release
 * [sgr](#sgr)
 * [sgr recover](#sgr-recover)
 * [sgr version](#sgr-version)
+
+## Options
+
+`semantic-git-release-cli` was build to be as simple as possible, so there are just a few options you need to know.
+
+* [sgr recover --backup](#sgr-recover---backup)
 * [sgr --help](#sgr---help)
 
 ### sgr
@@ -75,8 +94,8 @@ With `sgr recover [backup]` you can recover your complete CHANGELOG.md if you ju
 ```sh
 # generates the complete CHANGELOG.md
 $ sgr recover
-# generates the complete CHANGELOG.md and creates a backup of the current CHANGELOG.md in .sgr_backup
-$ sgr recover backup
+# generates the complete CHANGELOG.md, and creates a backup of the old one
+$ sgr recover --backup
 ```
 
 ### sgr version 
@@ -86,6 +105,15 @@ With `sgr version` you can display the current version of `semantic-git-release-
 ```sh
 # current version
 $ sgr version
+```
+
+### sgr recover --backup
+
+With `sgr recover --backup` you can recover your complete CHANGELOG.md, and recover the old CHANGELOG.md to `.sgr_backup`.
+
+```sh
+# generates the complete CHANGELOG.md and saves the old CHANGELOG.md to `.sgr_backup`
+$ sgr recover --backup
 ```
 
 ### sgr --help
