@@ -20,6 +20,7 @@
 * [Options](#options)
   * [sgr recover --backup](#sgr-recover---backup)
   * [sgr --help](#sgr---help)
+  * [sgr --version](#sgr---version)
 
 ## Why?
 
@@ -123,4 +124,13 @@ With `sgr --help` you can display usage of `semantic-git-release-cli`.
 ```sh
 # usage of cli
 $ sgr --help
+```
+
+### sgr --version 
+
+With `sgr --version` you can display the current version of `semantic-git-release-cli`.
+
+```sh
+# current version
+$ sgr --version
 ```
