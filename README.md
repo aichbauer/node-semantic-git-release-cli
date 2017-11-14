@@ -68,6 +68,7 @@ $ semantic-git-release
 
 * [sgr recover --backup](#sgr-recover---backup)
 * [sgr --help](#sgr---help)
+* [sgr --version](#sgr---version)
 
 ### sgr
 
