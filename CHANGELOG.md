@@ -1,3 +1,14 @@
+2.0.0 - November, 17 2017
+
+ * b756930 Docs: add missing version in option section (#22) (Lukas Aichbauer)
+ * 17bcd6b Feat: add option version (closes #19) (#21) (Lukas Aichbauer)
+ * 3e2fee8 Docs: add table of contens and seperate cmds and opts (#20) (Lukas Aichbauer)
+ * de79b6d Chore: move default-questions to release-questions (#16) (Lukas Aichbauer)
+ * 43bb3e9 Feat: change from command options to option flags (#17) (Lukas Aichbauer)
+ * d3703a9 Docs: fix indentation (#15) (Lukas Aichbauer)
+ * c9bcc36 Feat: change options to commands closes(#13) (#14) (Lukas Aichbauer)
+ * 75b0ee6 Docs: restructure and enhance the usage section (#12) (Lukas Aichbauer)
+
 1.1.0 - September, 13 2017
 
 * 67e04d0 Feat: recover the complete changelog.md (#10) (Lukas Aichbauer)
