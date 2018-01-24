@@ -1,3 +1,7 @@
+2.0.1 - January, 24 2018
+
+* c363785 Fix: switch from sync to async (#27) (Jan Peer Stöcklmair)
+
 2.0.0 - November, 17 2017
 
  * b756930 Docs: add missing version in option section (#22) (Lukas Aichbauer)
