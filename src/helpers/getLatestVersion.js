@@ -1,0 +1,44 @@
+import chalk from 'chalk';
+import taggedCommits from 'tagged-git-commits';
+import path from 'path';
+import fs from 'fs-extra';
+
+const getLatestVersion = () => {
+  const cwd = process.cwd();
+  const exitstsPkg = fs.existsSync(path.join(cwd, 'package.json'));
+
+  if (!exitstsPkg) {
+    return '';
+  }
+
+  const pkg = fs.readJsonSync(path.join(cwd, 'package.json'));
+  const latestPkgVersion = pkg.version;
+  const latestTag = taggedCommits({ path: cwd });
+
+  let latestVersion;
+  let latestTaggedVersion;
+
+  if (latestTag[0]) {
+    latestTaggedVersion = latestTag[0].version;
+  } else {
+    latestTaggedVersion = undefined;
+  }
+
+  if (`v${latestPkgVersion}` !== `${latestTaggedVersion}`
+    && latestTaggedVersion === undefined) {
+    latestVersion = `v${latestPkgVersion}`;
+  } else if (`v${latestPkgVersion}` === `${latestTaggedVersion}`) {
+    latestVersion = `v${latestPkgVersion}`;
+  } else {
+    console.warn(
+      chalk.yellow('WARNING: the versions from package.json and the latest tag differ...\n'),
+      chalk.yellow('if you increase the version with `sgr`, it will write all commits since the last tag into the new version..\n'),
+      chalk.yellow('you might consider tagging your last verion before using `sgr`...\n'),
+    );
+    latestVersion = `v${latestPkgVersion}`;
+  }
+
+  return latestVersion;
+};
+
+export default getLatestVersion;

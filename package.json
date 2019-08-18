@@ -4,26 +4,24 @@
   "description": "A CLI for semantic git releases",
   "main": "dest",
   "bin": {
-    "semantic-git-release": "./dest/cli.js",
-    "sgr": "./dest/cli.js"
+    "semantic-git-release": "./lib/cli.js",
+    "sgr": "./lib/cli.js"
   },
   "scripts": {
-    "pretest": "npm run lint & npm run babel & node ./test/test-helpers/_setup.js",
-    "test": "nyc ava -s || npm run posttest",
+    "pretest": "npm run babel & node ./test/test-helpers/_setup.js",
+    "test": "nyc ava -s || :",
     "posttest": "node ./test/test-helpers/_cleanup.js",
-    "lint": "eslint lib test",
-    "babel": "babel lib -d dest",
-    "prepublish": "npm run babel",
+    "babel": "babel src -d lib",
+    "prepare": "npm run babel",
     "prepush": "npm test",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "resetFixtures": "mv test/fixtures/repo-with-tags/.git test/fixtures/repo-with-tags/git && mv test/fixtures/repo-without-tags/.git test/fixtures/repo-without-tags/git && mv test/fixtures/repo-no-commits/.git test/fixtures/repo-no-commits/git"
   },
   "ava": {
     "require": [
-      "babel-register",
-      "babel-polyfill"
-    ],
-    "babel": "inherit"
+      "@babel/register",
+      "@babel/polyfill"
+    ]
   },
   "nyc": {
     "exclude": [
@@ -31,6 +29,17 @@
       "dest",
       "lib/tasks",
       "lib/helpers/cleanNodeModules.js"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write",
+      "git add"
     ]
   },
   "repository": {
@@ -53,18 +62,19 @@
   ],
   "homepage": "https://github.com/aichbauer/node-semantic-git-release-cli#readme",
   "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
     "ava": "^2.3.0",
-    "babel-polyfill": "^6.23.0",
-    "babel-preset-env": "^1.2.1",
-    "coveralls": "^3.0.6",
-    "eslint": "^3.17.1",
-    "eslint-config-airbnb-base": "^11.1.1",
-    "eslint-plugin-import": "^2.2.0",
-    "husky": "^0.13.2",
-    "nyc": "^14.1.1"
+    "cross-env": "^5.2.0",
+    "husky": "^0.13.4",
+    "lint-staged": "^9.2.3",
+    "nyc": "^14.1.1",
+    "prettier": "^1.18.2"
   },
   "dependencies": {
-    "babel-cli": "^6.26.0",
     "chalk": "^2.0.1",
     "count-git-tags": "^1.0.0",
     "execa": "^0.6.3",
