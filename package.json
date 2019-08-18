@@ -9,7 +9,7 @@
   },
   "scripts": {
     "pretest": "npm run babel & node ./test/test-helpers/_setup.js",
-    "test": "nyc ava -s || :",
+    "test": "nyc ava -s",
     "posttest": "node ./test/test-helpers/_cleanup.js",
     "babel": "babel src -d lib",
     "prepare": "npm run babel",
