@@ -10,5 +10,5 @@ coverage
 # macOS
 .DS_STORE
 
-# IDE / Editors
-.vscode
+# babel generated
+lib

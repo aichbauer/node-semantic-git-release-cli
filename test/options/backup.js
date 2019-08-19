@@ -1,12 +1,12 @@
-import test from 'ava';
+import test from "ava";
 
-import backup from '../../lib/options/backup';
+import backup from "../../lib/options/backup";
 
-test('OPTIONS | BACKUP | check alias, describe and type', (t) => {
+test("OPTIONS | BACKUP | check alias, describe and type", t => {
   const expected = {
-    alias: 'b',
-    describe: 'backup CHANGELOG.md when recover',
-    type: 'boolean',
+    alias: "b",
+    describe: "backup CHANGELOG.md when recover",
+    type: "boolean"
   };
 
   t.deepEqual(backup, expected);
