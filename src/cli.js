@@ -1,17 +1,16 @@
 #!/usr/bin/env node
 
-import yargs from 'yargs';
-import updateNotifier from 'update-notifier';
+import yargs from "yargs";
+import updateNotifier from "update-notifier";
 
-import options from './options';
+import options from "./options";
 
-import pkg from '../package.json';
+import pkg from "../package.json";
 
 yargs // eslint-disable-line
-  .commandDir('cmds')
+  .commandDir("cmds")
   .options(options)
   .demandCommand()
-  .help()
-  .argv;
+  .help().argv;
 
 updateNotifier({ pkg }).notify();

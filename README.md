@@ -10,17 +10,17 @@
 
 ## Table of contents
 
-* [Why](#why)
-* [Installation](#installation)
-* [Usage](#usage)
-* [Commands](#commands)
-  * [sgr](#sgr)
-  * [sgr recover](#sgr-recover)
-  * [sgr version](#sgr-version)
-* [Options](#options)
-  * [sgr recover --backup](#sgr-recover---backup)
-  * [sgr --help](#sgr---help)
-  * [sgr --version](#sgr---version)
+- [Why](#why)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Commands](#commands)
+  - [sgr](#sgr)
+  - [sgr recover](#sgr-recover)
+  - [sgr version](#sgr-version)
+- [Options](#options)
+  - [sgr recover --backup](#sgr-recover---backup)
+  - [sgr --help](#sgr---help)
+  - [sgr --version](#sgr---version)
 
 ## Why?
 
@@ -58,17 +58,17 @@ $ semantic-git-release
 
 `semantic-git-release-cli` was build to be as simple as possible, so there are just a few commands you need to know.
 
-* [sgr](#sgr)
-* [sgr recover](#sgr-recover)
-* [sgr version](#sgr-version)
+- [sgr](#sgr)
+- [sgr recover](#sgr-recover)
+- [sgr version](#sgr-version)
 
 ## Options
 
 `semantic-git-release-cli` was build to be as simple as possible, so there are just a few options you need to know.
 
-* [sgr recover --backup](#sgr-recover---backup)
-* [sgr --help](#sgr---help)
-* [sgr --version](#sgr---version)
+- [sgr recover --backup](#sgr-recover---backup)
+- [sgr --help](#sgr---help)
+- [sgr --version](#sgr---version)
 
 ### sgr
 
@@ -100,7 +100,7 @@ $ sgr recover
 $ sgr recover --backup
 ```
 
-### sgr version 
+### sgr version
 
 With `sgr version` you can display the current version of `semantic-git-release-cli`.
 
@@ -127,7 +127,7 @@ With `sgr --help` you can display usage of `semantic-git-release-cli`.
 $ sgr --help
 ```
 
-### sgr --version 
+### sgr --version
 
 With `sgr --version` you can display the current version of `semantic-git-release-cli`.
 
