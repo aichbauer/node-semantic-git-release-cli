@@ -26,11 +26,7 @@ const cleanup = () => {
     },
     {
       title: "install dependencies",
-<<<<<<< HEAD
-      task: () => installNodeModules(hasYarn)
-=======
       task: () => installNodeModules()
->>>>>>> fd39c963559557747466bf68098141d66a47b64a
     }
   ]);
 };
