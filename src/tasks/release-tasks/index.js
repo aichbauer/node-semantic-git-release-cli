@@ -14,6 +14,7 @@ import questions from "../../questions/release-questions";
 import { handler as showVersion } from "../../cmds/version";
 
 import cleanupTasks from "./cleanup";
+import needsPullTasks from "./needsPull";
 import releaseTasks from "./release";
 import testsTasks from "./tests";
 import changelogTasks from "./changelog";
@@ -21,6 +22,10 @@ import versionTasks from "./version";
 
 const tasks = (commits, version) =>
   new Listr([
+    {
+      title: "Check if Project is up to date",
+      tasks: () => needsPullTasks()
+    },
     {
       title: "Cleanup Project",
       task: () => cleanupTasks()
