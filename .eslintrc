@@ -1,16 +1,12 @@
 {
   "extends": "airbnb-base",
-  "plugins": [
-    "import"
-  ],
+  "plugins": ["import"],
   "rules": {
     "arrow-parens": 0,
     "no-underscore-dangle": [
       "error",
       {
-        "allow": [
-          "_tasks"
-        ],
+        "allow": ["_tasks"],
         "allowAfterThis": false
       }
     ]
