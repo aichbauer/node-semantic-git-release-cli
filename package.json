@@ -83,6 +83,7 @@
     "get-git-remotes": "^1.0.1",
     "git-commit-info": "^1.0.0",
     "git-commit-range": "^1.0.1",
+    "git-needs-pull": "^1.0.2",
     "has-yarn": "^1.0.0",
     "inquirer": "^3.0.6",
     "is-git-added": "^1.0.2",

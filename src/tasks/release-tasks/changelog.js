@@ -11,7 +11,7 @@ const changelogTasks = (commits, version) =>
 
         if (!updated) {
           throw new Error(
-            "could not write CHANGELOG.md... make sure you have write and read access to it"
+            "Error: could not write CHANGELOG.md... make sure you have write and read access to it"
           );
         }
       }
