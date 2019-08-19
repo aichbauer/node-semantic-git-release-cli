@@ -1,5 +1,4 @@
 import Listr from "listr";
-import hasYarn from "has-yarn";
 import fs from "fs-extra";
 import path from "path";
 import {
@@ -27,7 +26,11 @@ const cleanup = () => {
     },
     {
       title: "install dependencies",
+<<<<<<< HEAD
       task: () => installNodeModules(hasYarn)
+=======
+      task: () => installNodeModules()
+>>>>>>> fd39c963559557747466bf68098141d66a47b64a
     }
   ]);
 };
