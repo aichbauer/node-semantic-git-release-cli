@@ -24,7 +24,7 @@ const tasks = (commits, version) =>
   new Listr([
     {
       title: "Check if Project is up to date",
-      tasks: () => needsPullTasks()
+      task: () => needsPullTasks()
     },
     {
       title: "Cleanup Project",
@@ -49,6 +49,7 @@ const tasks = (commits, version) =>
   ]);
 
 const release = argv => {
+  console.log();
   const cwd = process.cwd();
   const latestTaggedCommits = taggedCommits({ path: cwd });
   const latestTaggedCommit =
@@ -115,7 +116,10 @@ const release = argv => {
           )
         );
     })
-    .catch(err => console.warn(chalk.red(err)));
+    .catch(err => {
+      console.log(tasks);
+      console.warn(chalk.red(err));
+    });
 };
 
 export default release;
