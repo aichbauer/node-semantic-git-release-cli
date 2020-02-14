@@ -94,6 +94,6 @@
     "semver": "^5.3.0",
     "tagged-git-commits": "^1.0.0",
     "update-notifier": "^2.1.0",
-    "yargs": "^8.0.1"
+    "yargs": "^15.1.0"
   }
 }
