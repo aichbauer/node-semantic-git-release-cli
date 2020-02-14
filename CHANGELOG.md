@@ -1,3 +1,12 @@
+2.0.2 - February, 14 2020
+
+* ba0633b Chore: bump handlebars from 4.1.2 to 4.5.3 (#37) (dependabot[bot])
+* 1461bd6 Fix: typo tasks (#36) (Lukas Aichbauer)
+* cf667b0 Fix: check if needs git pull (closes #29) (#35) (Lukas Aichbauer)
+* 687dc3a Chore: apply prettier (#34) (Lukas Aichbauer)
+* fd39c96 Fix: actually call hasYarn (#33) (Lukas Aichbauer)
+* 061e01f Chore: update deps, change to prettier, update ava, update babel (#32) (Lukas Aichbauer)
+
 2.0.1 - January, 24 2018
 
 * c363785 Fix: switch from sync to async (#27) (Jan Peer Stöcklmair)
