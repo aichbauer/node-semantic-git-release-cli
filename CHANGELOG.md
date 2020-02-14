@@ -1,3 +1,7 @@
+2.0.3 - February, 14 2020
+
+* 78c6441 Chore: update deps (#38) (Lukas Aichbauer)
+
 2.0.2 - February, 14 2020
 
 * ba0633b Chore: bump handlebars from 4.1.2 to 4.5.3 (#37) (dependabot[bot])
