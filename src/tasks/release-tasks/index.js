@@ -24,7 +24,7 @@ const tasks = (commits, version) =>
   new Listr([
     {
       title: "Check if Project is up to date",
-      tasks: () => needsPullTasks()
+      task: () => needsPullTasks()
     },
     {
       title: "Cleanup Project",
